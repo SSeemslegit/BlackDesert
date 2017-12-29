@@ -40,6 +40,41 @@ $(document).ready(function () {
         }
     });
 
+        function push_notification(baslik,icerik,resim,url) {
+
+            // bildirim opsiyonları
+            var options = {
+                body: icerik,
+                icon: resim,
+                dir : "ltr"
+            };
+            // bildirim opsiyonları
+
+            if (!("Notification" in window)) { // Tarayıcı bildirim özelliğini destekliyor mu?
+                alert("Tarayıcınız bildirim özelliğini desteklememektedir!");
+            }else if (Notification.permission === "granted") { // Daha önce kullanıcı izin verdi ise
+                var notification = new Notification(baslik,options); // Bildirimi göster
+                notification.onclick = function() { // bildirime tıklanınca belirtilen url adresine yönlendir.
+                    window.open(url);
+                };
+                notification.onclose = function(){ // bildirim kapatılırsa
+                    alert('bildirim kapatıldı!');
+                }
+            }else if (Notification.permission !== 'denied') { // İzin verilmedi ise
+                Notification.requestPermission(function (permission) { // Kullanıcıdan onay iste
+                    if (permission === "granted") { // Onay verildi ise
+                        var notification = new Notification(baslik,options); // Bildirimi göster
+                        notification.onclick = function() { // bildirime tıklanınca belirtilen url adresine yönlendir.
+                            window.open(url);
+                        };
+                        notification.onclose = function(){ // bildirim kapatılırsa
+                            alert('bildirim kapatıldı!');
+                        }
+                    }
+                });
+            }
+
+        }
     function displayProduct(product) {
         var containerProduct = $('<li>');
         containerProduct.attr('data-product-id', product.id)
@@ -49,7 +84,7 @@ $(document).ready(function () {
         productNewAlert.attr('title', 'Add alert');
         productNewAlert.text('Başlat');
         productNewAlert.click(function () {
-            var timeToAlert = 1000 * 54 * 10;
+            var timeToAlert = 30 * 54 * 10;
             var containerProductToNewAlert = $(this).parents('li');
 
             var alertDelete = $('<button class="btn btn-danger btn-sm " style="margin-left: 5px;">');
@@ -79,8 +114,10 @@ $(document).ready(function () {
                     $(containerAlert).addClass('window-open');
                     var messageNotification = product.name + ' : ' + dateWindowOpen.toLocaleTimeString();
                     playSound();
-                   
+                    push_notification("İtem Markete Eklendi","Test",'http://www.codenlife.net/images/logos/logo.png',"http://www.test.net/");
+            
                 },
+
                 timeToAlert
             );
 

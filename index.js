@@ -164,7 +164,7 @@ $(document).ready(function () {
         myAudio = new Audio('beep.mp3');
         var currentRepeat = 0;
         myAudio.play();
-        myAudio.volume = 0.5;
+        myAudio.volume = 0.3;
         myAudio.addEventListener('ended', function() {
             currentRepeat++;
             if (currentRepeat >= 2) {

@@ -57,9 +57,7 @@ $(document).ready(function () {
                 notification.onclick = function() { // bildirime tıklanınca belirtilen url adresine yönlendir.
                     window.open(url);
                 };
-                notification.onclose = function(){ // bildirim kapatılırsa
-                    alert('bildirim kapatıldı!');
-                }
+
             }else if (Notification.permission !== 'denied') { // İzin verilmedi ise
                 Notification.requestPermission(function (permission) { // Kullanıcıdan onay iste
                     if (permission === "granted") { // Onay verildi ise
@@ -67,9 +65,7 @@ $(document).ready(function () {
                         notification.onclick = function() { // bildirime tıklanınca belirtilen url adresine yönlendir.
                             window.open(url);
                         };
-                        notification.onclose = function(){ // bildirim kapatılırsa
-                            alert('bildirim kapatıldı!');
-                        }
+
                     }
                 });
             }

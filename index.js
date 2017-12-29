@@ -165,10 +165,6 @@ $(document).ready(function () {
         var currentRepeat = 0;
         myAudio.play();
         myAudio.addEventListener('ended', function() {
-            currentRepeat++;
-            if (currentRepeat >= 1) {
-                return;
-            }
             this.play();
         }, false);
     }

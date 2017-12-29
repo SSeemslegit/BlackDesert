@@ -114,7 +114,7 @@ $(document).ready(function () {
                     $(containerAlert).addClass('window-open');
                     var messageNotification = product.name + ' : ' + dateWindowOpen.toLocaleTimeString();
                     playSound();
-                    push_notification("İtem Markete Eklendi","Test",'http://www.codenlife.net/images/logos/logo.png',"http://www.test.net/");
+                    push_notification("İtemin Pazara Eklenmesine Az Kaldı !","Test",'https://res.cloudinary.com/teepublic/image/private/s--hzenCVH3--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1467371704/production/designs/567364_1.jpg',"https://sseemslegit.github.io/BlackDesert/");
             
                 },
 

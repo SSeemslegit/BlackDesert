@@ -161,10 +161,14 @@ $(document).ready(function () {
 
 
     function playSound() {
-        myAudio = new Audio('beep2.mp3');
+        myAudio = new Audio('beep.mp3');
         var currentRepeat = 0;
         myAudio.play();
         myAudio.addEventListener('ended', function() {
+            currentRepeat++;
+            if (currentRepeat >= 1) {
+                return;
+            }
             this.play();
         }, false);
     }

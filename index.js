@@ -166,7 +166,7 @@ $(document).ready(function () {
         myAudio.play();
         myAudio.addEventListener('ended', function() {
             currentRepeat++;
-            if (currentRepeat >= 2) {
+            if (currentRepeat >= 1) {
                 return;
             }
             this.play();

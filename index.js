@@ -80,7 +80,7 @@ $(document).ready(function () {
         productNewAlert.attr('title', 'Add alert');
         productNewAlert.text('Başlat');
         productNewAlert.click(function () {
-            var timeToAlert = 30 * 54 * 10;
+            var timeToAlert = 100 * 54 * 10;
             var containerProductToNewAlert = $(this).parents('li');
 
             var alertDelete = $('<button class="btn btn-danger btn-sm " style="margin-left: 5px;">');
